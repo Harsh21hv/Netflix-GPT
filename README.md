@@ -6,11 +6,7 @@ Netflix-GPT is a movie search application that leverages React.js, Redux Toolkit
 
 ## API Reference
 
-#### Get all items
 
-```http
-  GET /api/items/?api_key=12345678901234567890123456789012
-```
 
 | Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
