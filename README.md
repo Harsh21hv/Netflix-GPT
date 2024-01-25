@@ -1,6 +1,5 @@
 ![](https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png)
 
-
 # Netflix-GPT
 
 Netflix-GPT is a movie search application that leverages React.js, Redux Toolkit, Firebase, and OpenAI API for an immersive movie search experience. The project is styled using Tailwind CSS to ensure a clean and responsive user interface.
