@@ -25,7 +25,7 @@ const GptSearchBar = () => {
   };
 
   const handleGptSearchClick = async () => {
-    console.log(searchText.current.value);
+    
     //Make an API call to get Movie Results
 
     const gptQuery =
@@ -37,19 +37,25 @@ const GptSearchBar = () => {
       messages: [{ role: 'user', content: gptQuery }],
       model: 'gpt-3.5-turbo',
     });
+
+    
     if (gptResults.choices) {
       //Show nothing if nothing found on search
     }
 
     //
     const gptMovies = gptResults.choices[0]?.message?.content.split(',');
+    
+
 
     //Search for each Movie in TMDB
 
     const promiseArray = gptMovies.map((movie) => searchMovieTmdb(movie));
     //[promise, promise, promise, promise, promise]
+    
 
     const tmdbResults = await Promise.all(promiseArray);
+  
 
     dispatch(
       addGptMovieResult({ movieNames: gptMovies, movieResults: tmdbResults })
