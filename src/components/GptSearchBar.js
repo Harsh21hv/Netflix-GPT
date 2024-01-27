@@ -25,7 +25,6 @@ const GptSearchBar = () => {
   };
 
   const handleGptSearchClick = async () => {
-    
     //Make an API call to get Movie Results
 
     const gptQuery =
@@ -38,24 +37,19 @@ const GptSearchBar = () => {
       model: 'gpt-3.5-turbo',
     });
 
-    
     if (gptResults.choices) {
       //Show nothing if nothing found on search
     }
 
     //
     const gptMovies = gptResults.choices[0]?.message?.content.split(',');
-    
-
 
     //Search for each Movie in TMDB
 
     const promiseArray = gptMovies.map((movie) => searchMovieTmdb(movie));
     //[promise, promise, promise, promise, promise]
-    
 
     const tmdbResults = await Promise.all(promiseArray);
-  
 
     dispatch(
       addGptMovieResult({ movieNames: gptMovies, movieResults: tmdbResults })
@@ -80,6 +74,12 @@ const GptSearchBar = () => {
         >
           {lang[langKey].search}
         </button>
+        <div className='bg-red-600 text-white w-max rounded-sm m-4 p-2 '>
+          The GPT API is chargeable. The API key expires after a few number of
+          requests and needs to <br /> be changed frequently. Hence, the
+          GPT-search might not be serviceable at moments when <br /> the API key
+          expires.
+        </div>
       </form>
     </div>
   );
